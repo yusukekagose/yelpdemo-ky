@@ -42,4 +42,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rails_12factor'
+gem 'carrierwave', '~> 1.2.1'
 ruby '2.4.2'
