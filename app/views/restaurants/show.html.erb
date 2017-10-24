@@ -20,5 +20,10 @@
   <%= @restaurant.website %>
 </p>
 
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @restaurant.image_url %>
+</p>
+
 <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-link" %> |
 <%= link_to 'Back', restaurants_path, class: "btn btn-link" %>
