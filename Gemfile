@@ -47,7 +47,7 @@ gem 'rails_12factor'
 gem 'carrierwave', '~> 1.2.1'
 gem 'fog', '~> 1.42'
 gem 'figaro', '~> 1.1.1'
-
+gem 'mini_magick', '~> 4.8'
 
 
 
