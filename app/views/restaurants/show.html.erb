@@ -25,5 +25,7 @@
   <%= image_tag @restaurant.image_url %>
 </p>
 
+
+<%= link_to "Write a Review", new_restaurant_review_path(@restaurant) %>
 <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-link" %> |
 <%= link_to 'Back', restaurants_path, class: "btn btn-link" %>
