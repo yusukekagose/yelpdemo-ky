@@ -1,35 +1,48 @@
 <div class="row">
   <div class="col-md-3">
-    <p>
     <%= image_tag @restaurant.image_url %>
-    </p>
+
     <h2>
-    <%= @restaurant.name %>
+      <%= @restaurant.name %>
     </h2>
 
     <div class="star-rating" data-score= <%= @avg_rating %> ></div>
     <p><%= "#{@reviews.length} reviews" %></p>
 
     <p>
-    <strong>Address:</strong>
-    <%= @restaurant.address %>
+      <strong>Address:</strong>
+      <%= @restaurant.address %>
     </p>
 
     <p>
-    <strong>Phone:</strong>
-    <%= @restaurant.phone %>
+      <strong>Phone:</strong>
+      <%= @restaurant.phone %>
     </p>
 
     <p>
-    <strong>Website:</strong>
-    <%= link_to @restaurant.website, @restaurant.website %>
+      <strong>Website:</strong>
+      <%= link_to @restaurant.website, @restaurant.website %>
     </p>
+
+    <%= link_to "Write a Review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+
+    <br>
+    <br>
+
+    <iframe
+      width="230"
+      height="230"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBJg0HiO2KtvExTuiWB6rKhmUUsHXFk6dY
+        &q=<%= @restaurant.address.parameterize %>&zoom=14">
+    </iframe>
   </div>
+
   <div class="col-md-9">
     <% if @reviews.blank? %>
-      <h3>No reviews yet</h3>
+      <h3>No reviews yet. Be the first to write one!</h3>
     <% else %>
-    <table class="table">
+      <table class="table">
         <thead>
           <tr>
             <th class="col-md-3"></th>
@@ -66,8 +79,6 @@
   </div>
 </div>
 
-
-<%= link_to "Write a Review", new_restaurant_review_path(@restaurant) %>
 <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-link" %> |
 <%= link_to 'Back', restaurants_path, class: "btn btn-link" %>
 
