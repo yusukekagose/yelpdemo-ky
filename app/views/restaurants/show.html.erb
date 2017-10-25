@@ -27,7 +27,7 @@
       <h3>No reviews yet</h3>
     <% else %>
     <% @reviews.each do |review| %>
-      <p><%= review.rating %></p>
+      <div class="star-rating"  data-score= <%= review.rating %>></div>
       <p><%= review.comment %></p>
     <% end %>
     <% end %>
@@ -35,10 +35,16 @@
 </div>
 
 
-
-
-
-
 <%= link_to "Write a Review", new_restaurant_review_path(@restaurant) %>
 <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-link" %> |
 <%= link_to 'Back', restaurants_path, class: "btn btn-link" %>
+
+<script>
+  $('.star-rating').raty({
+    path: 'https://s3.amazonaws.com/yelpdemo/stars',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>
