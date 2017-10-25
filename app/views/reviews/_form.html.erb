@@ -11,10 +11,7 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :rating %>
-    <%= f.text_area :rating, class: "form-control" %>
-  </div>
+  <div id="star-rating"></div>
 
   <div class="form-group">
     <%= f.label :comment %>
@@ -25,3 +22,10 @@
   </div>
 
 <% end %>
+
+<script>
+  $('#star-rating').raty({
+    path: 'https://s3.amazonaws.com/yelpdemo/stars',
+    scoreName: 'review[rating]'
+  });
+</script>
